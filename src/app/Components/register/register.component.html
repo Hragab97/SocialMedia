@@ -1,0 +1,39 @@
+<section>
+    <h1 class="text-center text-4xl text-blue-700 font-semibold mb-5">Linked Posts</h1>
+    <form class="example-form mx-auto">
+        <mat-form-field class="example-full-width mb-5">
+            <mat-label>Name</mat-label>
+            <input type="text" matInput [formControl]="nameFormControl" [errorStateMatcher]="matcher"
+                placeholder="Type your Name" [ngModel]="prints()">
+            @if (nameFormControl.hasError('minlength') || nameFormControl.hasError('maxlength')  && !nameFormControl.hasError('required')) {
+            <mat-error>Please enter a valid name</mat-error>
+            }
+            @if (nameFormControl.hasError('required')) {
+            <mat-error>Name is <strong>required</strong></mat-error>
+            }
+        </mat-form-field>
+        <mat-form-field class="example-full-width mb-5">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+                placeholder="Ex. pat@example.com">
+            @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
+            <mat-error>Please enter a valid email address</mat-error>
+            }
+            @if (emailFormControl.hasError('required')) {
+            <mat-error>Email is <strong>required</strong></mat-error>
+            }
+        </mat-form-field>
+        <mat-form-field class="example-full-width mb-5">
+            <mat-label>Password</mat-label>
+            <input type="password" matInput [formControl]="passwordFormControl" [errorStateMatcher]="matcher"
+                placeholder="Type Password">
+            @if (passwordFormControl.hasError('pattern') && !passwordFormControl.hasError('required')) {
+            <mat-error>Please enter a valid password</mat-error>
+            }
+            @if (passwordFormControl.hasError('required')) {
+            <mat-error>Password is <strong>required</strong></mat-error>
+            }
+        </mat-form-field>
+        <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Sign Up</button>
+    </form>
+</section>
